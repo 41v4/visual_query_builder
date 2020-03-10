@@ -1,0 +1,108 @@
+#############
+# Main menu #
+#############
+
+You can change results limit by pressing 'Options' -> 'Set results limit' at the main menu.
+
+You can change connection timeout settings by pressing 'Options' -> 'Set connection timeout (ms.) at the main menu (all available timeout options are in milliseconds).
+
+You can see your query string by pressing 'Help' -> 'Show query string' at the main menu.
+
+#########################
+# Connecting to MongoDB #
+#########################
+
+There are two ways of connecting to MongoDB. Choose one of them.
+1) URI. You need to paste an URI string into empty entry field and press 'Connect' button.
+2) Local (no auth). If MongoDB is running on your OS, you can connect to it without any authentication details by pressing 'Connect' button.
+
+#######################################
+# Available databases and collections #
+#######################################
+
+After successful connection all available databases and collections will be listed in 'Databases' and 'Collections' fields. When you select any database - all available collections of that database will be updated according to selected database. You can see all documents of selected collection by pressing 'Show all' button.
+
+###################
+# Query structure #
+###################
+
+All fields of query structure should be filled and not left empty.
+
+There is one external logical operator($and, $or, $nor) at the upper right corner. This external logical operator 'joins' other internal logical operators and query lines.
+
+There could be one or more internal logical operators depending on the number of created query blocks.
+
+You can insert new query line of chosen query block by pressing '+' button and clicking 'New query line'.
+
+You can delete existing query line (the last one) of chosen query block by pressing '+' button and clicking 'Remove query line'.
+
+You can insert new query block by pressing the lowest '+' button and clicking 'New block'.
+
+You can execute query by clicking 'Execute query' button.
+
+You can clear all query structure by clicking 'Clear all' button.
+
+##########################
+# Query structure fields #
+##########################
+
+First field: 'Document key'. Enter document key without quotation marks, e.g. movieTitle
+Second field: 'Operator'. Choose one of many available operators, e.g. $eq
+Third field: 'Value'. Enter document value without quotation marks if you want your value type to bet set automatically or with quotation marks if you want your value to be set as string.
+
+#######################################
+# Examples of using various operators #
+#######################################
+
+---------------------------------------
+$eq = 'The Matrix'
+returns all results equal to 'The Matrix'
+---------------------------------------
+$gt = 9
+returns all results greater than 9
+---------------------------------------
+$gte = 9
+returns all results greater or equal to 9
+---------------------------------------
+$in = ['yellow', 'green', 'red']
+returns all results equal to any value in array
+---------------------------------------
+$lt = 9
+returns all results lower than 9
+---------------------------------------
+$lte = 9
+returns all results lower or equal to 9
+---------------------------------------
+$ne = 'The Matrix'
+returns all results not equal to 'The Matrix'
+---------------------------------------
+$nin = ['yellow', 'green', 'red']
+returns all results not equal to any value in array
+---------------------------------------
+$exists = True/False
+returns all results if document key exists (if True)
+---------------------------------------
+$type = string/int/array/date/bool/...
+returns all results with a proper type
+---------------------------------------
+$mod = [3, 1]
+returns all results which were divided by 3 and left with a 1 remainder. 7 / 3 = 2 + remainder 1
+---------------------------------------
+$regex:
+'(?i)hobbit' = returns all results with a word 'hobbit' (case insensitive)
+'^The hobbit' = returns all results which starts with 'The hobbit'
+'Journey$' = returns all results which ends with 'Journey'
+'.{10}' = returns all results with a legth of 10 or longer
+---------------------------------------
+$search = Hobbit
+returns all results which contains word 'Hobbit'
+You are limited to use $search operator only single time per query search.
+---------------------------------------
+$all = ['Yellow', 'Green']
+returns all arrays which contains words 'Yellow' and 'Green'
+---------------------------------------
+$size = 3
+returns all arrays which legth is equal to 3
+---------------------------------------
+You can read more about query and projection operators on official MongoDb website: 
+https://docs.mongodb.com/manual/reference/operator/query/
