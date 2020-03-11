@@ -13,7 +13,7 @@ python visual_query_builder.py
 # Tutorial
 Outside app: help.txt file
 Inside app: 'Help' -> 'About' in main menu
+```
 
 # Demo
 ![](visual_query_builder_demo.gif)
-```
